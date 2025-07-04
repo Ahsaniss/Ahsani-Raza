@@ -48,7 +48,7 @@ const Skills = () => {
   const languages = [
     { name: "English", level: "Fluent" },
     { name: "Urdu", level: "Native" },
-    { name: "Punjabi", level: "Native" }
+   
   ];
 
   return (
