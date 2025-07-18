@@ -4,45 +4,44 @@ import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Phone, Linkedin, Github, Send } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
+  // EmailJS configuration
+  const serviceID = 'service_84rri4uy';
+  const templateID = 'template_ez72rmst';
+  const publicKey = '84RrI4uYEZ72RmStk';
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const formData = new FormData(event.currentTarget);
-      formData.append("access_key", "353875a5-9527-46bb-a421-8c3b780a2e5d");
-      formData.append("from_name", "Portfolio Contact Form");
+      const result = await emailjs.sendForm(
+        serviceID,
+        templateID,
+        formRef.current!,
+        publicKey
+      );
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.status === 200) {
         toast({
           title: "Message sent successfully!",
           description: "Thank you for your message. I'll get back to you soon.",
         });
         formRef.current?.reset();
       } else {
-        toast({
-          title: "Error sending message",
-          description: data.message || "Please try again later.",
-          variant: "destructive",
-        });
+        throw new Error('Failed to send email');
       }
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast({
-        title: "Network error",
-        description: "Failed to connect to the server. Please try again.",
+        title: "Error sending message",
+        description: "Please try again later or contact me directly via email.",
         variant: "destructive",
       });
     } finally {
@@ -165,27 +164,25 @@ const Contact = () => {
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <h3 className="text-xl font-semibold text-primary">Send Me a Message</h3>
                   
-                  <input type="hidden" name="botcheck" value="" />
-                  
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Name *</Label>
+                        <Label htmlFor="from_name">Name *</Label>
                         <input
                           type="text"
-                          id="name"
-                          name="name"
+                          id="from_name"
+                          name="from_name"
                           placeholder="Your name"
                           className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:border-primary"
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="from_email">Email *</Label>
                         <input
                           type="email"
-                          id="email"
-                          name="email"
+                          id="from_email"
+                          name="from_email"
                           placeholder="your.email@example.com"
                           className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 focus:border-primary"
                           required

@@ -1,73 +1,115 @@
-# Welcome to your Lovable project
+# Ahsani Raza - Portfolio Website
 
-## Project info
+A modern, responsive portfolio website built with React and TypeScript, showcasing professional experience, projects, and skills.
 
-**URL**: https://lovable.dev/projects/4f01a3d0-1633-4ee0-9abf-4e8cea78cd5a
+## Features
 
-## How can I edit this code?
+- 🎨 Modern and responsive design
+- 🌙 Dark theme optimized
+- 📱 Mobile-first approach
+- ⚡ Fast loading with Vite
+- 🎯 SEO optimized
+- 📧 Contact form integration
+- 🔧 TypeScript for type safety
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4f01a3d0-1633-4ee0-9abf-4e8cea78cd5a) and start prompting.
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
+1. Clone the repository:
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone <repository-url>
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Navigate to the project directory:
+```sh
+cd Ahsani-Raza
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Install dependencies:
+```sh
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Tech Stack
 
-## What technologies are used for this project?
+This project is built with modern web technologies:
 
-This project is built with:
+- **Frontend Framework**: React 18
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Package Manager**: Bun
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project Structure
 
-## How can I deploy this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── Hero.tsx        # Hero section
+│   ├── About.tsx       # About section
+│   ├── Experience.tsx  # Experience section
+│   ├── Projects.tsx    # Projects showcase
+│   ├── Skills.tsx      # Skills section
+│   └── Contact.tsx     # Contact form
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── assets/             # Static assets
+└── pages/              # Page components
+```
 
-Simply open [Lovable](https://lovable.dev/projects/4f01a3d0-1633-4ee0-9abf-4e8cea78cd5a) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+### Build for Production
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The built files will be in the `dist` directory, ready for deployment to any static hosting service.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Deployment Options
+
+- **Vercel**: Connect your GitHub repository for automatic deployments
+- **Netlify**: Drag and drop the `dist` folder or connect via Git
+- **GitHub Pages**: Use GitHub Actions for automated deployment
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Ahsani Raza - [Your Email] - [Your LinkedIn]
+
+Project Link: [https://github.com/yourusername/Ahsani-Raza](https://github.com/yourusername/Ahsani-Raza)
